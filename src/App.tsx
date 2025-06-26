@@ -17,7 +17,7 @@ import Settings from "./pages/Settings";
 import SignIn from "./pages/SignIn";
 import "./App.css";
 import ProtectedRoute from "./components/protectedRoute";
-
+// 
 function App() {
   return (
     <ThemeProvider>
