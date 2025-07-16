@@ -23,6 +23,7 @@ interface NewTemplateFormData {
   content: string;
   htmlContent: string;
   useHtml: boolean;
+  templatePurpose: string;
 }
 
 const initialFormData: NewTemplateFormData = {
@@ -30,7 +31,8 @@ const initialFormData: NewTemplateFormData = {
   subject: "",
   content: "",
   htmlContent: "",
-  useHtml: false,
+  useHtml: true,
+  templatePurpose: "",
 };
 
 const Messaging: React.FC = () => {
@@ -170,13 +172,42 @@ const Messaging: React.FC = () => {
                       </div>
                     </div>
 
+                    {/* //df */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          htmlFor="fruit-select"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
+                          Select Template Notification
+                        </label>
+                        <select
+                          id="fruit-select"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                          value={formData.templatePurpose}
+                          onChange={(e) =>
+                            handleInputChange("templatePurpose", e.target.value)
+                          }
+                        >
+                          <option value="">Select a Purpose</option>
+                          <option value="task-assigned">Task Assigned</option>
+                          <option value="task-deleted">Task Deleted</option>
+                          <option value="task-updated">Task Updated</option>
+                          <option value="content-request-created">Content Request Created</option>
+                          <option value="content-uploaded">Content Uploaded</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* //df */}
+
                     <div>
                       <div className="flex items-center justify-between mb-3">
                         <label className="block text-sm font-medium text-gray-700">
                           Email Content
                         </label>
                         <div className="flex items-center space-x-4">
-                          <div className="flex items-center">
+                          {/* <div className="flex items-center">
                             <input
                               type="checkbox"
                               id="use-html"
@@ -193,7 +224,7 @@ const Messaging: React.FC = () => {
                               <Code className="h-4 w-4 inline mr-1" />
                               Use HTML Editor
                             </label>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
 
@@ -313,7 +344,7 @@ The ofmbase Team`}
                       )}
                     </div>
 
-                    <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
+                    {/* <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
                       <h4 className="text-sm font-medium text-blue-900 mb-2">
                         Available Variables
                       </h4>
@@ -337,7 +368,7 @@ The ofmbase Team`}
                           {"{{unsubscribe_url}}"}
                         </code>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end space-x-3">
